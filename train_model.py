@@ -11,8 +11,9 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
-# ── Config ────────────────────────────────────────────────────────────────────
+# ── Config ────────────────────────────────────────
 os.makedirs("tracking_evidence", exist_ok=True)
+mlflow.set_tracking_uri('./mlruns')   
 
 n_estimators  = int(sys.argv[1])   if len(sys.argv) > 1 else 100
 max_depth     = int(sys.argv[2])   if len(sys.argv) > 2 else None
