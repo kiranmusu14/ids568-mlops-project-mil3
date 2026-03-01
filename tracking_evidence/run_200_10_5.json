@@ -1,0 +1,20 @@
+{
+    "run_id": "7b6bb1ddae4e43eca0700ef3af0f3f34",
+    "params": {
+        "n_estimators": 200,
+        "max_depth": 10,
+        "min_samples_split": 5,
+        "random_state": 42
+    },
+    "metrics": {
+        "r2_score": 0.437011,
+        "mse": 2982.80145,
+        "mae": 44.337319,
+        "rmse": 54.61503
+    },
+    "tags": {
+        "model_hash": "75a6dce3b2fbf6749a79e7ea55be0fad2e9de6b7b94f62f3bff4c6a756f5cea0",
+        "model_file": "tracking_evidence/model_200_10_5.pkl"
+    },
+    "status": "FINISHED"
+}

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/kiran14/Documents/IDS%20568/IDS568-milstone%203/ids568-mlops-project-mil3/mlruns/971190284327602701/d7ac5450d9a243f6ab3d4ed94348ba03/artifacts
+end_time: 1772334733580
+entry_point_name: ''
+experiment_id: '971190284327602701'
+lifecycle_stage: active
+run_id: d7ac5450d9a243f6ab3d4ed94348ba03
+run_name: auspicious-duck-731
+run_uuid: d7ac5450d9a243f6ab3d4ed94348ba03
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772334731784
+status: 3
+tags: []
+user_id: kiran14

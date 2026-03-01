@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/kiran14/Documents/IDS%20568/IDS568-milstone%203/ids568-mlops-project-mil3/mlruns/971190284327602701/f0e344ae0f4b4babaaca3b1a38f34d51/artifacts
+end_time: 1772334760936
+entry_point_name: ''
+experiment_id: '971190284327602701'
+lifecycle_stage: active
+run_id: f0e344ae0f4b4babaaca3b1a38f34d51
+run_name: monumental-skink-603
+run_uuid: f0e344ae0f4b4babaaca3b1a38f34d51
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772334759111
+status: 3
+tags: []
+user_id: kiran14

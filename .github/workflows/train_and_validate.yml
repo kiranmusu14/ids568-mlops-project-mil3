@@ -1,0 +1,62 @@
+name: Model Training and Validation CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # ── 1. Checkout code ──────────────────────────────────────────────────────
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # ── 2. Set up Python ──────────────────────────────────────────────────────
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    # ── 3. Install dependencies ───────────────────────────────────────────────
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # ── 4. Run training (5 runs with different hyperparameters) ───────────────
+    - name: Run Model Training
+      run: |
+        python train_model.py 50
+        python train_model.py 100
+        python train_model.py 150 5
+        python train_model.py 200 10 5
+        python train_model.py 300 15 4
+
+    # ── 5. Log metrics to MLflow ──────────────────────────────────────────────
+    - name: Verify MLflow Runs Logged
+      run: |
+        python -c "
+        import mlflow
+        mlflow.set_tracking_uri('./mlruns')
+        runs = mlflow.search_runs(experiment_names=['diabetes_rf_experiment'])
+        print(f'Total runs logged: {len(runs)}')
+        print(runs[['params.n_estimators','metrics.r2_score','metrics.rmse']].to_string())
+        assert len(runs) >= 5, 'FAILED: Less than 5 runs found in MLflow'
+        print('MLflow logging verified.')
+        "
+
+    # ── 6. Quality gate ───────────────────────────────────────────────────────
+    - name: Run Quality Gate Validation
+      run: |
+        python model_validation.py
+
+    # ── 7. Upload tracking evidence as artifact ───────────────────────────────
+    - name: Upload tracking evidence
+      uses: actions/upload-artifact@v3
+      with:
+        name: tracking-evidence
+        path: tracking_evidence/
