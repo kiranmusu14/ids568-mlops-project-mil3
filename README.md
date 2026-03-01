@@ -1,4 +1,5 @@
 # IDS568 Milestone 3 — Workflow Automation & Experiment Tracking
+![MLOps CI/CD Pipeline](https://github.com/kiranmusu14/ids568-mlops-project-mil3/actions/workflows/train_and_validate.yml/badge.svg)
 
 ## Overview
 This project implements a complete automated ML workflow integrating **Apache Airflow** orchestration, **GitHub Actions** CI/CD, and **MLflow** experiment tracking on the scikit-learn Diabetes dataset.
